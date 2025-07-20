@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <meta name="description"
+    content="GolfEasyGo - Your smart golf companion for GPS distance, score tracking and course analysis.">
+  <meta name="keywords" content="Golf, GPS, Scorecard, GolfEasyGo, Golf App, Android Golf App, iOS Golf App">
+  <meta name="author" content="GolfEasyGo Team">
+
+  <!-- Open Graph for Facebook, LinkedIn -->
+  <meta property="og:title" content="GolfEasyGo - Your Premium Golf Assistant">
+  <meta property="og:description" content="GPS distance, live map, scorecard tracking. Available on iOS and Android.">
+  <meta property="og:image" content="https://yourdomain.com/preview.png">
+  <meta property="og:url" content="https://golfeasygo.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <title>GolfEasyGo - Your Premium Golf Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      /* font-family: 'Montserrat', sans-serif; */
+      margin: 0;
+      padding: 0;
+      color: #ddd;
+      line-height: 1.6;
+      background: #121212;
+    }
+
+    header,
+    footer {
+      background: rgba(0, 180, 137, 0.6);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 1rem 1rem;
+    }
+
+    header nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0.5rem 0.75rem;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1604363041450-019b2c1e0eb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 6rem 1rem;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .hero img {
+      width: 100px;
+      margin-bottom: 1rem;
+      animation: pulse 3s infinite;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+    }
+
+    .btn {
+      background: rgba(0, 180, 137, 0.8);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 0.5rem;
+      display: inline-block;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+
+    .btn:hover {
+      background: rgba(0, 180, 137, 1);
+      box-shadow: 0 4px 10px rgba(0, 180, 137, 0.4);
+    }
+
+    .features {
+      max-width: 1200px;
+      margin: auto;
+      padding: 3rem 1rem;
+
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('features-bg.png') center/cover no-repeat;
+
+
+      /* background: url('https://images.unsplash.com/photo-1516815231560-8f41ec2e8fe0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat; */
+      background-attachment: fixed;
+      border-radius: 10px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      color: #19735a;
+      /* text-shadow: 1px 1px 3px #000; */
+    }
+
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .feature {
+      flex: 1 1 280px;
+      background: rgba(30, 30, 30, 0.6);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    .testimonials {
+      background: rgba(34, 34, 34, 0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    .testimonial {
+      max-width: 800px;
+      margin: 1rem auto;
+      text-align: center;
+      font-style: italic;
+      padding: 0 1rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+      background: rgba(30, 30, 30, 0.6);
+      backdrop-filter: blur(6px);
+      border-radius: 8px;
+    }
+
+    .faq-item h4 {
+      margin-bottom: 0.5rem;
+      color: #6ecab1e6;
+    }
+
+    .download {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: rgba(30, 30, 30, 0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    .download img {
+      height: 50px;
+      width: 160px;
+      object-fit: contain;
+      margin: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 1rem 1rem;
+    }
+
+    .text {
+      padding-left: 20px;
+      padding-right: 20px;
+      font-size: 14px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      header nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header nav div:last-child {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .features-grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <div><strong>GolfEasyGo</strong></div>
+      <div>
+        <a href="#features">Features</a>
+        <a href="#testimonials">Testimonials</a>
+        <!-- <a href="#faq">FAQ</a> -->
+        <a href="#download">Download</a>
+        <a href="#contact">Contact</a>
+        <a href="#terms">Terms</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="icon_rounded.png" alt="GolfEasyGo Logo">
+    <h1>Elevate Your Golf Experience</h1>
+    <p>The premium assistant for golfers — GPS distance, score tracking & professional insights on the course.</p>
+    <a href="#download" class="btn">Download Now</a>
+  </section>
+
+  <section id="features" class="features">
+    <h2 class="section-title" style="color: #4cc2a1; text-shadow: -0.5px 1px 1px #ffffff">Features</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <h3>GPS Distance Measurement</h3>
+        <p>Precisely measure distances to greens, bunkers, and hazards with professional accuracy.</p>
+      </div>
+      <div class="feature">
+        <h3>Digital Scorecard</h3>
+        <p>Record your scores seamlessly and analyze your performance over time.</p>
+      </div>
+      <div class="feature">
+        <h3>Live Course Mapping</h3>
+        <p>Visualize your position and trajectory on an interactive course map.</p>
+      </div>
+      <div class="feature">
+        <h3>Background Tracking</h3>
+        <p>Keep tracking your round even with your phone in your pocket.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <h2 class="section-title">What Golfers Say</h2>
+    <div class="testimonial">
+      “GolfEasyGo transformed my game — the measurements are spot-on, and the scorecard keeps me organized!” —
+      <strong>John D.</strong>
+    </div>
+    <div class="testimonial">
+      “Finally, an app that looks good and actually helps on the course. Love the simplicity!” — <strong>Emily
+        R.</strong>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h4>Does it work on any golf course?</h4>
+      <p>Yes, GolfEasyGo uses GPS, so it works anywhere in the world.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Is there a subscription?</h4>
+      <p>No, the app is free to download and use. Premium features may be added in the future.</p>
+    </div>
+  </section>
+
+  <section id="download" class="download">
+    <h2>Download GolfEasyGo</h2>
+    <p>Available on iOS and Android</p>
+    <a href="https://apps.apple.com/us/app/glofeasygo/id6745505118" target="_blank">
+      <img src="download-on-the-app-store.svg" alt="Download on the App Store">
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=glofassistant.com.glof_assistant" target="_blank">
+      <img src="download-on-the-play-store.png" alt="Get it on Google Play">
+    </a>
+  </section>
+
+  <section id="terms" class="terms">
+    <h2 class="section-title">Privacy Policy & Terms</h2>
+    <p class="text">Your privacy is important to us. GolfEasyGo collects only the necessary location data to provide the
+      core
+      features of the app. We do not share or sell your data to third parties. For more information or questions about
+      our privacy policy, please contact support@golfeasygo.com.</p>
+    <p class="text">By using GolfEasyGo, you agree to abide by our terms of service which include responsible usage of
+      GPS features
+      and respect for other golfers on the course.</p>
+  </section>
+
+  <footer id="contact">
+    <p style="margin: 0;">Contact us at <a href="mailto:support@golfeasygo.com"
+        style="color:#fff;">support@golfeasygo.com</a></p>
+    <p style="margin: 0cap;font-size: 12px;">&copy; 2025 GolfEasyGo. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>
