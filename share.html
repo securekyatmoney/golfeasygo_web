@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>跳转中...</title>
+    <script>
+      const ua = navigator.userAgent.toLowerCase();
+
+      if (ua.includes("android")) {
+        window.location.href = "https://play.google.com/store/apps/details?id=glofassistant.com.glof_assistant&pcampaignid=web_share";
+      } else if (ua.includes("iphone") || ua.includes("ipad")) {
+        window.location.href = "https://apps.apple.com/th/app/glofeasygo/id6745505118";
+      } else {
+        window.location.href = "https://securekyatmoney.github.io/golfeasygo-support"; // fallback
+      }
+    </script>
+  </head>
+  <body>
+    <p>正在跳转，请稍候...</p>
+  </body>
+</html>
