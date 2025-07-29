@@ -1,21 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>跳转中...</title>
-    <script>
-      const ua = navigator.userAgent.toLowerCase();
 
-      if (ua.includes("android")) {
-        window.location.href = "https://play.google.com/store/apps/details?id=glofassistant.com.glof_assistant&pcampaignid=web_share";
-      } else if (ua.includes("iphone") || ua.includes("ipad")) {
-        window.location.href = "https://apps.apple.com/th/app/glofeasygo/id6745505118";
-      } else {
-        window.location.href = "https://golfeasygo.com"; // fallback
+<head>
+  <meta charset="UTF-8">
+  <title>跳转中...</title>
+  <script>
+
+    // Get source parameter from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const source = urlParams.get('source') || '';
+
+    // Call the API with source parameter
+    // if (source) {
+    console.log('Source parameter provided: ' + source);
+
+    // Try different approaches to handle CORS and API issues
+    const apiUrl = `https://api.playgolf.vip/api/common/ad-click?source=${encodeURIComponent(source)}`;
+
+    fetch(apiUrl, {
+      method: 'GET',
+      mode: 'no-cors', // This bypasses CORS but you won't get response details
+      headers: {
+        'Content-Type': 'application/json',
       }
-    </script>
-  </head>
-  <body>
-    <p>loading，page...</p>
-  </body>
+    }).then(response => {
+      console.log('API call completed (no-cors mode)');
+      // Note: In no-cors mode, you can't read the response
+    }).catch(error => {
+      console.log('API call failed:', error);
+
+      // Fallback: Try using an image tag as a simple GET request
+      // This is a common workaround for tracking APIs
+      const img = new Image();
+      img.onload = () => console.log('API tracking successful via image method');
+      img.onerror = () => console.log('API tracking failed via image method');
+      img.src = apiUrl + '&_t=' + Date.now(); // Add timestamp to prevent caching
+    });
+    // } else {
+    //   console.log('No source parameter provided.');
+    // }
+
+
+
+    const ua = navigator.userAgent.toLowerCase();
+
+    if (ua.includes("android")) {
+      window.location.href = "https://play.google.com/store/apps/details?id=glofassistant.com.glof_assistant&pcampaignid=web_share";
+    } else if (ua.includes("iphone") || ua.includes("ipad")) {
+      window.location.href = "https://apps.apple.com/th/app/glofeasygo/id6745505118";
+    } else {
+      window.location.href = "https://golfeasygo.com"; // fallback
+    }
+  </script>
+</head>
+
+<body>
+  <p>loading，page...</p>
+</body>
+
 </html>
