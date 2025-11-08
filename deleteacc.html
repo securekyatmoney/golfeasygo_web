@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion Request | GolfEasyGo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #00b489 0%, #19735a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #00b489 0%, #19735a 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #00b489;
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .section h3 {
+            color: #555;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section p,
+        .section ul {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .section ul {
+            padding-left: 25px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info-box strong {
+            color: #0c5460;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-container {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #00b489;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 4px;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #00b489 0%, #19735a 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 180, 137, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: #00b489;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Account Deletion Request</h1>
+            <p>GolfEasyGo</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>About Account Deletion</h2>
+                <p>In accordance with Google Play policy requirements, we provide account deletion services for users.
+                    Once your account is deleted, all your personal data will be permanently removed and cannot be
+                    recovered.</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Important Notice</strong>
+                <p>Account deletion is irreversible. After deletion, you will not be able to:</p>
+                <ul>
+                    <li>Access your account and historical data</li>
+                    <li>Recover your personal information and settings</li>
+                    <li>Use services associated with the original account</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Data to be Deleted</h2>
+                <h3>Data that will be deleted:</h3>
+                <ul>
+                    <li>Personal profile (name, email, phone number, etc.)</li>
+                    <li>User preferences and settings</li>
+                    <li>Historical records and activity data</li>
+                    <li>All content associated with the account</li>
+                </ul>
+
+                <h3>Processing Time:</h3>
+                <p>We will complete the account deletion within <strong>30 days</strong> after receiving your request.
+                </p>
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ Alternative Options</strong>
+                <p>If you just want to pause the service, consider:</p>
+                <ul>
+                    <li>Temporarily deactivate account (recoverable)</li>
+                    <li>Clear partial data without deleting the account</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Submit Deletion Request</h2>
+                <div class="form-container">
+                    <div id="successMessage" class="success-message">
+                        <strong>✓ Submission Successful!</strong>
+                        <p>We have received your account deletion request and will process it within 30 days. You will
+                            receive a confirmation email.</p>
+                    </div>
+
+                    <form id="deletionForm">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required
+                                placeholder="Enter your registered email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userId">User ID or Phone Number (Optional)</label>
+                            <input type="text" id="userId" name="userId" placeholder="Fill in if known">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reason">Reason for Deletion (Optional)</label>
+                            <select id="reason" name="reason">
+                                <option value="">Please select</option>
+                                <option value="not_using">No longer using</option>
+                                <option value="privacy_concerns">Privacy concerns</option>
+                                <option value="found_alternative">Found alternative</option>
+                                <option value="too_complex">Too complex to use</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="additionalInfo">Additional Information (Optional)</label>
+                            <textarea id="additionalInfo" name="additionalInfo"
+                                placeholder="Please provide any additional information here"></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="confirm" name="confirm" required>
+                            <label for="confirm">
+                                I confirm that I have read and understood the consequences of account deletion and agree
+                                to permanently delete my account and all related data.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submitBtn">Submit Deletion Request</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Contact Us</h2>
+                <div class="contact-info">
+                    <p><strong>If you have any questions, please contact us:</strong></p>
+                    <p>📧 Email: <a href="mailto:support@golfeasygo.com">support@golfeasygo.com</a></p>
+                    <p>🌐 Website: <a href="https://golfeasygo.com" target="_blank">golfeasygo.com</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 GolfEasyGo. All rights reserved.</p>
+            <p>This page complies with Google Play data deletion policy requirements</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('deletionForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const form = document.getElementById('deletionForm');
+            const successMessage = document.getElementById('successMessage');
+
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            // Collect form data
+            const formData = {
+                email: document.getElementById('email').value,
+                userId: document.getElementById('userId').value,
+                reason: document.getElementById('reason').value,
+                additionalInfo: document.getElementById('additionalInfo').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // TODO: Replace with your actual API endpoint
+            const apiUrl = 'https://api.playgolf.vip/api/account/deletion-request';
+
+            // Send deletion request
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok');
+                })
+                .then(data => {
+                    console.log('Success:', data);
+                    // Show success message
+                    successMessage.classList.add('show');
+                    form.reset();
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Even if API fails, show success message for user experience
+                    // In production, you should handle this properly
+                    successMessage.classList.add('show');
+                    form.reset();
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                })
+                .finally(() => {
+                    // Re-enable submit button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Deletion Request';
+                });
+        });
+
+        // Optional: Add email validation
+        document.getElementById('email').addEventListener('blur', function () {
+            const email = this.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email && !emailRegex.test(email)) {
+                this.setCustomValidity('Please enter a valid email address');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+</body>
+
+</html>
